@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="#">Ejemplo Menú</a>
+    <button class="navbar-toggler" id="navbar-toggler">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="navbar-collapse" id="navbar-collapse">
+    <ul class="navbar-nav">
+      <li><a href="#">Inicio</a></li>
+      @if(!userLoginOn){
+        <li ><a routerLink="/login">Iniciar Sesión</a></li>
+        <li ><a routerLink="/registrarse">Registrarse</a></li>
+      }@else{
+        <li ><a href="#">Cerrar Sesión</a></li>
+      }
+    </ul>
+  </div>
+</nav>
