@@ -1,11 +1,12 @@
+<app-nav/>
 <form >
     <div>
       <label for="username">Usuario:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="usuario" [ngModelOptions]="{standalone:true}">
+      <input type="text" id="username" name="username" [(ngModel)]="email" [ngModelOptions]="{standalone:true}">
     </div>
     <div>
       <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="contrasena" [ngModelOptions]="{standalone:true}">
+      <input type="password" id="password" name="password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}">
     </div>
-    <button type="submit">Enviar</button>
+    <button (click)="login()">Ingresar</button>
   </form>
