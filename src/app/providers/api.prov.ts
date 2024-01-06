@@ -31,7 +31,7 @@ export class ApiProvider{
 
     register(data: any): Promise<any>{
         return new Promise((resolve, reject) => {
-            axios.post(this.url+'users', data).then(res => {
+            axios.post(this.url+'users/auth/signup', data).then(res => {
                 resolve(res.data);
             })
             .catch(err => {
