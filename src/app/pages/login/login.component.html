@@ -1,12 +1,34 @@
-<app-nav/>
-<form >
-    <div>
-      <label for="username">Usuario:</label>
-      <input type="text" id="username" name="username" [(ngModel)]="email" [ngModelOptions]="{standalone:true}">
+<app-nav />
+<form #LoginForm="ngForm">
+  <div>
+    <label for="username">Usuario:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      [(ngModel)]="email"
+      [ngModelOptions]="{standalone:true}"
+      required
+      #username="ngModel"
+    />
+    <div *ngIf="username.invalid && username.touched" class="alert alert-warning text-danger">
+      <span class="text-warning">El campo usuario es requerido.</span>
     </div>
-    <div>
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}">
+  </div>
+  <div>
+    <label for="password">Contraseña:</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="password"
+      [ngModelOptions]="{standalone:true}"
+      required
+      #password="ngModel"
+    />
+    <div *ngIf="password.invalid && password.touched" class="alert alert-warning text-danger">
+      <span class="text-warning">El campo contraseña es requerido.</span>
     </div>
-    <button (click)="login()">Ingresar</button>
-  </form>
+  </div>
+  <button (click)="login()">Ingresar</button>
+</form>

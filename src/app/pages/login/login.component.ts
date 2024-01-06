@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiProvider } from '../../providers/api.prov'
 import { NavComponent } from '../../shared/nav/nav.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, NavComponent],
+  imports: [FormsModule, NavComponent, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
