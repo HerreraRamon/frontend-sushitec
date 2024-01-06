@@ -32,7 +32,7 @@ export class LoginComponent {
       console.log(res);
       if(res.token){
         localStorage.setItem("token", res.token);
-        window.location.href = '/dashboard';
+        window.location.href = '/menu';
       }
     });
   }

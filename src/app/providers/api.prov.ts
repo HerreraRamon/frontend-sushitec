@@ -11,7 +11,7 @@ export class ApiProvider{
 
     login(data:any) : Promise<any>{
         return new Promise((resolve, reject) => {
-            axios.post(this.url+'users/login',data).then(res => {
+            axios.post(this.url+'users/auth/login',data).then(res => {
                 resolve(res.data);
             })
             .catch(err => {
