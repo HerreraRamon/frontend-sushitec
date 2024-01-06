@@ -12,7 +12,7 @@ import { MenuModalComponent } from '../menu-modal/menu-modal.component';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  public menu : any = [];
+  public menus : any = [];
   constructor(
     private apiProv: ApiProvider,
     public dialog: MatDialog
@@ -22,11 +22,11 @@ export class MenuComponent {
 
   public getBooks(){
     this.apiProv.getBooks().then(res => {
-      this.menu = res.data;
+      this.menus = res.data;
     })
   }
 
-  public newBookModal(){
+  public newMenuModal(){
     const dialogRef = this.dialog.open(MenuModalComponent, {
       data: {
         new: true
@@ -41,7 +41,7 @@ export class MenuComponent {
     });
   }
 
-  public updateBookModal(book: any){
+  public updateMenuModal(book: any){
     const dialogRef = this.dialog.open(MenuModalComponent, {
       data: {
         new: false,

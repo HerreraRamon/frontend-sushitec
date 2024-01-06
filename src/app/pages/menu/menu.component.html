@@ -1,16 +1,16 @@
 <app-nav2/>
 <div>
-    <button (click)="newBookModal()" class="bg-green-500">Nuevo Libro</button>
+    <button (click)="newMenuModal()" class="bg-green-500">Nuevo Libro</button>
     <button  class="bg-green-500">Nuevo Menu</button>
 </div> <br>
 
 <ul>
-    @for (book of menu; track book._id) {
+    @for (menu of menus; track menu._id) {
         <li>
-            <img src = {{book.img}} style="width: 100px;"/>
-            {{book.name}} <br>
-            {{book.categoria}} <br>
-            <button class="bg-blue-500" (click)="updateBookModal(book)">Actualizar</button>
+            <img src = {{menu.img}} style="width: 100px;"/>
+            {{menu.name}} <br>
+            {{menu.categoria}} <br>
+            <button class="bg-blue-500" (click)="updateMenuModal(menu)">Actualizar</button>
 
             <button class="bg-red-500" >Eliminar</button>
         </li><br>
