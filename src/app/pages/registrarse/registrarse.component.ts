@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule,Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from '../../shared/nav/nav.component';
 import { ApiProvider } from '../../providers/api.prov'
 
@@ -18,13 +18,13 @@ export class RegistrarseComponent {
   }
   email: string = ''; 
   password: string = ''; 
-  nombre:string='';
+  username:string='';
 
   public register(){
     const data = {
       email: this.email,
       password: this.password,
-      userName: this.nombre
+      username: this.username
     }
 
     this.apiProv.register(data).then(res => {
