@@ -42,7 +42,7 @@ export class ApiProvider{
 
     getBooks(): Promise<any>{
         return new Promise((resolve, reject) => {
-            axios.get(this.url+'books').then(res => {
+            axios.get(this.url+'menus/menu').then(res => {
                 resolve(res.data);
             })
             .catch(err => {
