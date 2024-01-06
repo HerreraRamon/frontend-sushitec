@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from '../../shared/nav/nav.component';
 import { ApiProvider } from '../../providers/api.prov'
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-registrarse',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule, NavComponent],
+  imports: [FormsModule,ReactiveFormsModule, NavComponent, CommonModule],
   templateUrl: './registrarse.component.html',
   styleUrl: './registrarse.component.css'
 })
