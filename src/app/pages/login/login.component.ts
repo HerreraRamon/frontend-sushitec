@@ -13,8 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
 
-  email: string = ''; 
-  password: string = ''; 
+  
   constructor(
     private apiProv: ApiProvider
   ) {
@@ -22,6 +21,9 @@ export class LoginComponent {
       window.location.href = '/dashboard'
     }*/
   }
+
+  email: string = ''; 
+  password: string = ''; 
 
   public login(){
     const data = {

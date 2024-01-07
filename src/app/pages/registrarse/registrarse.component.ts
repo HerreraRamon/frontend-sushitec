@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-registrarse',
   standalone: true,
-  imports: [FormsModule,ReactiveFormsModule, NavComponent, CommonModule],
+  imports: [FormsModule, NavComponent, CommonModule],
   templateUrl: './registrarse.component.html',
   styleUrl: './registrarse.component.css'
 })
@@ -25,7 +25,7 @@ export class RegistrarseComponent {
     const data = {
       email: this.email,
       password: this.password,
-      username: this.username
+      userName: this.username
     }
 
     this.apiProv.register(data).then(res => {
