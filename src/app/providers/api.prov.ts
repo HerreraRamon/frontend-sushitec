@@ -40,7 +40,7 @@ export class ApiProvider{
         });
     }
 
-    getBooks(): Promise<any>{
+    getMenus(): Promise<any>{
         return new Promise((resolve, reject) => {
             axios.get(this.url+'menus/menu').then(res => {
                 resolve(res.data);
@@ -51,10 +51,10 @@ export class ApiProvider{
         });
     }
 
-    createBook(data: any): Promise<any>{
+    createMenu(data: any): Promise<any>{
         const token = localStorage.getItem("token");
         return new Promise((resolve,reject) => {
-            axios.post(this.url+'books',data, {
+            axios.post(this.url+'menus/',data, {
                 headers: {
                     Authorization: token
                 }
@@ -66,10 +66,10 @@ export class ApiProvider{
         });
     }
 
-    updateBook(bookId: any, data: any): Promise<any>{
+    updateMenu(menuId: any, data: any): Promise<any>{
         const token = localStorage.getItem("token");
         return new Promise((resolve,reject) => {
-            axios.put(this.url+'books/'+ bookId,data, {
+            axios.put(this.url+'menus/'+ menuId,data, {
                 headers: {
                     Authorization: token
                 }
@@ -81,10 +81,10 @@ export class ApiProvider{
         });  
     }
 
-    deleteBook(bookId: any): Promise<any>{
+    deleteMenu(menuId: any): Promise<any>{
         const token = localStorage.getItem("token");
         return new Promise((resolve,reject) => {
-            axios.delete(this.url+'books/'+ bookId,{
+            axios.delete(this.url+'menus/'+ menuId,{
                 headers: {
                     Authorization: token
                 }

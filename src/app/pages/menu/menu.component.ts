@@ -3,6 +3,8 @@ import { Nav2Component } from '../../shared/nav2/nav2.component';
 import { ApiProvider } from '../../providers/api.prov'
 import { MatDialog } from '@angular/material/dialog';
 import { MenuModalComponent } from '../menu-modal/menu-modal.component';
+import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-menu',
@@ -12,21 +14,21 @@ import { MenuModalComponent } from '../menu-modal/menu-modal.component';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-  public menu : any = [];
+  public menus : any = [];
   constructor(
     private apiProv: ApiProvider,
     public dialog: MatDialog
   ){
-    this.getBooks()
+    this.getMenus()
   }
 
-  public getBooks(){
-    this.apiProv.getBooks().then(res => {
-      this.menu = res.data;
+  public getMenus(){
+    this.apiProv.getMenus().then(res => {
+      this.menus = res.data;
     })
   }
 
-  public newBookModal(){
+  public newMenuModal(){
     const dialogRef = this.dialog.open(MenuModalComponent, {
       data: {
         new: true
@@ -37,22 +39,21 @@ export class MenuComponent {
       height: '80%'
     });
     dialogRef.afterClosed().subscribe((result: any) => {
-      this.getBooks();
+      this.getMenus();
     });
   }
 
-  public updateBookModal(book: any){
+  public updateMenuModal(menu: any){
     const dialogRef = this.dialog.open(MenuModalComponent, {
       data: {
         new: false,
-        bookId: book._id,
-        titulo: book.titulo,
-        autor: book.autor,
-        isbn: book.isbn,
-        genero: book.genero,
-        precio: book.precio,
-        stock: book.stock,
-        img: book.img
+        menuId: menu._id,
+        name: menu.name,
+        categoria: menu.categoria,
+        ingredientes: menu.ingredientes,
+        descripcion: menu.descripcion,
+        precio: menu.precio,
+        img: menu.img
       },
       disableClose: true,
       hasBackdrop: true,
@@ -60,7 +61,29 @@ export class MenuComponent {
       height: '80%'
     });
     dialogRef.afterClosed().subscribe((result: any) => {
-      this.getBooks();
+      this.getMenus();
+    });
+  }
+
+  public deleteMenu(menu: any){
+    Swal.fire({
+      showCancelButton: true,
+      title: '¿Desea eleiminar libro: '+ menu.name + ' ?',
+      confirmButtonText: "Confirmar",
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        this.apiProv.deleteMenu(menu._id)
+        .then(
+          (res) => {
+            Swal.fire({
+              title: "Libro Eliminado",
+              icon: "success"
+            });
+            this.getMenus();
+          }
+        );
+      }
     });
   }
 
