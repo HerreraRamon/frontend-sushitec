@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { ApiProvider } from '../../providers/api.prov';
 import { NavComponent } from '../../shared/nav/nav.component';
 import { CommonModule } from '@angular/common';
@@ -43,11 +48,12 @@ export class LoginComponent {
           if (res.token) {
             localStorage.setItem('token', res.token);
             window.location.href = '/menu';
+            this.loginForm.reset();
           }
         });
       }
-    }else{
-      alert('Ingresa un correo y una contraseña válidos')
+    } else {
+      alert('Ingresa un correo y una contraseña válidos');
     }
   }
 }
