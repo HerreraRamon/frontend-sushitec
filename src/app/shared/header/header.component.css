@@ -1,29 +1,22 @@
 /* Estilos generales */
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Estilos del encabezado */
-  .encabezado {
-    background-color: orange; /* Fondo naranja */
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  /* Estilos del ovalo negro */
-  .ovalo-negro {
-    display: inline-block;
-    border: 3px solid black; /* Borde negro */
-    background-color: black;
-    border-radius: 50%; /* Forma ovalada */
-    padding: 10px; /* Espacio alrededor del texto */
-  }
-  
-  /* Estilos del título */
-  .titulo {
-    margin: 0;
-    color: white; /* Color del texto */
-  }
-  
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos del encabezado */
+.encabezado {
+  display: flex; /* Convierte el contenedor en un contenedor flex */
+  justify-content: center; /* Centra los elementos hijos horizontalmente */
+  align-items: center; 
+  background: linear-gradient(red, yellow); /* Fondo naranja */
+}
+
+
+.logo {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%; 
+}
+
+
+
