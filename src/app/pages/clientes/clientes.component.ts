@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Nav2Component } from '../../shared/nav2/nav2.component';
+import { NavComponent } from '../../shared/nav/nav.component';
 import { ApiProvider } from '../../providers/api.prov'
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2'
@@ -8,7 +8,7 @@ import { ClienteModalComponent } from '../cliente-modal/cliente-modal.component'
 @Component({
   selector: 'app-clientes',
   standalone: true,
-  imports: [Nav2Component],
+  imports: [NavComponent],
   templateUrl: './clientes.component.html',
   styleUrl: './clientes.component.css'
 })

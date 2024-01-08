@@ -1,16 +1,30 @@
-<app-nav2/>
+<app-nav/>
 <div>
     <button (click)="newClienteModal()" class="bg-green-500">Nuevo cliente</button>
 </div> <br>
 
-<ul>
-    @for (cliente of clientes; track cliente._id) {
-        <li>
-            {{cliente.nombres}} <br>
-            {{cliente.aPaterno}} {{cliente.aMaterno}}<br>
-            <button class="bg-blue-500" (click)="updateClienteModal(cliente)">Actualizar</button>
-
-            <button class="bg-red-500" (click)="deleteCliente(cliente)">Eliminar</button>
-        </li><br>
-    }
-</ul>
+<div class="container my-3">
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>Nombres</th>
+          <th>Apellido Paterno</th>
+          <th>Apellido Materno</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (cliente of clientes; track cliente._id) {
+          <tr>
+            <td>{{cliente.nombres}}</td>
+            <td>{{cliente.aPaterno}}</td>
+            <td>{{cliente.aMaterno}}</td>
+            <td>
+              <button class="btn btn-primary mr-2" (click)="updateClienteModal(cliente)">Actualizar</button>
+              <button class="btn btn-danger" (click)="deleteCliente(cliente)">Eliminar</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
