@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Nav2Component } from '../../shared/nav2/nav2.component';
+import { NavComponent } from '../../shared/nav/nav.component';
 import { ApiProvider } from '../../providers/api.prov'
 import { MatDialog } from '@angular/material/dialog';
 import { MenuModalComponent } from '../menu-modal/menu-modal.component';
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [Nav2Component],
+  imports: [NavComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import axios from 'axios';
 import { environment } from "../../environments/environment";
 
@@ -8,8 +8,10 @@ import { environment } from "../../environments/environment";
 
 export class ApiProvider{
     url = environment.apiUrl;
+    public loggedInStatus = new EventEmitter<boolean>();
 
     login(data:any) : Promise<any>{
+        this.loggedInStatus.emit(true);
         return new Promise((resolve, reject) => {
             axios.post(this.url+'users/auth/login',data).then(res => {
                 resolve(res.data);
@@ -26,6 +28,7 @@ export class ApiProvider{
     }
 
     logout(){
+        this.loggedInStatus.emit(false);
         localStorage.removeItem("token");
     }
 

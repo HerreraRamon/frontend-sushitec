@@ -1,27 +1,8 @@
-/* Estilos del encabezado */
-.encabezado {
-    background-color: orange; /* Fondo naranja */
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  /* Estilos del ovalo negro */
-  .ovalo-negro {
-    display: inline-block;
-    background-color: black; /* Fondo negro */
-    border-radius: 50%; /* Forma ovalada */
-    padding: 20px; /* Espacio alrededor del texto */
-  }
-  
-  /* Estilos del título */
-  .titulo {
-    margin: 0;
-    color: white; /* Color del texto */
-  }
+
   
   /* Estilos del footer */
   .pie {
-    background-color: orange; /* Fondo naranja */
+    background: linear-gradient(yellow, rgb(167, 239, 0)); /* Fondo naranja */
     text-align: center;
     padding: 10px 0;
     position: fixed;
