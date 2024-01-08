@@ -1,7 +1,6 @@
 <app-nav2/>
 <div>
-    <button (click)="newMenuModal()" class="bg-green-500">Nuevo Libro</button>
-    <button  class="bg-green-500">Nuevo Menu</button>
+    <button (click)="newMenuModal()" class="bg-green-500">Nuevo Menu</button>
 </div> <br>
 
 <ul>
@@ -12,7 +11,7 @@
             {{menu.categoria}} <br>
             <button class="bg-blue-500" (click)="updateMenuModal(menu)">Actualizar</button>
 
-            <button class="bg-red-500" >Eliminar</button>
+            <button class="bg-red-500" (click)="deleteMenu(menu)">Eliminar</button>
         </li><br>
     }
 </ul>

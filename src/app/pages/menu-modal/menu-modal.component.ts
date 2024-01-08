@@ -14,13 +14,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class MenuModalComponent {
   public new = true;
-  public bookId = "";
-  public titulo = "";
-  public autor = "";
-  public isbn = "";
-  public genero = "";
+  public menuId = "";
+  public name = "";
+  public categoria = "";
+  public ingredientes = "";
+  public descripcion = "";
   public precio = "";
-  public stock = "";
   public img = "";
 
   constructor(
@@ -29,32 +28,30 @@ export class MenuModalComponent {
     private apiProv: ApiProvider
   ) {
     this.new = data.new;
-    this.bookId = data.bookId;
-    this.titulo = data.titulo;
-    this.autor = data.autor;
-    this.isbn = data.isbn;
-    this.genero = data.genero;
+    this.menuId = data.menuId;
+    this.name = data.name;
+    this.categoria = data.categoria;
+    this.ingredientes = data.ingredientes;
+    this.descripcion = data.descripcion;
     this.precio = data.precio;
-    this.stock = data.stock;
     this.img = data.img;
   }
 
-  public createBook() {
+  public createMenu() {
     const data = {
-      titulo: this.titulo,
-      autor: this.autor,
-      isbn: this.isbn,
-      genero: this.genero,
+      name: this.name,
+      categoria: this.categoria,
+      ingredientes: this.ingredientes,
+      descripcion: this.descripcion,
       precio: this.precio,
-      stock: this.stock,
       img: this.img
     }
-    this.apiProv.createBook(data)
+    this.apiProv.createMenu(data)
     .then(
       (res) => {
         if(res){
           Swal.fire({
-            title: "Libro Creado",
+            title: "Menu Creado",
             icon: "success"
           });
           this.onClose()
@@ -63,23 +60,22 @@ export class MenuModalComponent {
     );
   }
 
-  public updateBook(): void {
+  public updateMenu(): void {
     const data = {
-      titulo: this.titulo,
-      autor: this.autor,
-      isbn: this.isbn,
-      genero: this.genero,
+      name: this.name,
+      categoria: this.categoria,
+      ingredientes: this.ingredientes,
+      descripcion: this.descripcion,
       precio: this.precio,
-      stock: this.stock,
       img: this.img
     }
 
-    this.apiProv.updateBook(this.bookId, data)
+    this.apiProv.updateMenu(this.menuId, data)
     .then(
       (res) => {
         if(res){
           Swal.fire({
-            title: "Libro Actualizado",
+            title: "Menu Actualizado",
             icon: "success"
           });
           this.onClose()
