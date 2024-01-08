@@ -95,4 +95,60 @@ export class ApiProvider{
             });
         });  
     }
+
+    getClientes(): Promise<any>{
+        return new Promise((resolve, reject) => {
+            axios.get(this.url+'clientes/clientes').then(res => {
+                resolve(res.data);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        });
+    }
+
+    createCliente(data: any): Promise<any>{
+        const token = localStorage.getItem("token");
+        return new Promise((resolve,reject) => {
+            axios.post(this.url+'clientes/',data, {
+                headers: {
+                    Authorization: token
+                }
+            }).then(res => {
+                resolve(res.data);
+            }).catch(err => {
+                console.log(err);
+            });
+        });
+    }
+
+    updateCliente(menuId: any, data: any): Promise<any>{
+        const token = localStorage.getItem("token");
+        return new Promise((resolve,reject) => {
+            axios.put(this.url+'clientes/'+ menuId,data, {
+                headers: {
+                    Authorization: token
+                }
+            }).then(res => {
+                resolve(res.data);
+            }).catch(err => {
+                console.log(err);
+            });
+        });  
+    }
+
+    deleteCliente(menuId: any): Promise<any>{
+        const token = localStorage.getItem("token");
+        return new Promise((resolve,reject) => {
+            axios.delete(this.url+'clientes/'+ menuId,{
+                headers: {
+                    Authorization: token
+                }
+            }).then(res => {
+                resolve(res.data);
+            }).catch(err => {
+                console.log(err);
+            });
+        });  
+    }
 }

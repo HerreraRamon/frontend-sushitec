@@ -1,0 +1,16 @@
+<app-nav2/>
+<div>
+    <button (click)="newClienteModal()" class="bg-green-500">Nuevo cliente</button>
+</div> <br>
+
+<ul>
+    @for (cliente of clientes; track cliente._id) {
+        <li>
+            {{cliente.nombres}} <br>
+            {{cliente.aPaterno}} {{cliente.aMaterno}}<br>
+            <button class="bg-blue-500" (click)="updateClienteModal(cliente)">Actualizar</button>
+
+            <button class="bg-red-500" (click)="deleteCliente(cliente)">Eliminar</button>
+        </li><br>
+    }
+</ul>
