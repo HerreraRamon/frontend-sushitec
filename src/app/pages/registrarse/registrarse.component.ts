@@ -12,10 +12,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './registrarse.component.css'
 })
 export class RegistrarseComponent {
-  registerForm: FormGroup;
+  RegisterForm: FormGroup;
   submitted = false;
   constructor(public apiProv:ApiProvider, public formBuilder: FormBuilder) {
-    this.registerForm = this.formBuilder.group({
+    this.RegisterForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       username: ['', Validators.required]
@@ -28,10 +28,10 @@ export class RegistrarseComponent {
 
   public register(){
     this.submitted = true;
-    if(this.registerForm.valid){
-      const emailControl = this.registerForm.get('email');
-      const passwordControl = this.registerForm.get('password');
-      const usernameControl = this.registerForm.get('username');
+    if(this.RegisterForm.valid){
+      const emailControl = this.RegisterForm.get('email');
+      const passwordControl = this.RegisterForm.get('password');
+      const usernameControl = this.RegisterForm.get('username');
       if(emailControl && passwordControl && usernameControl){
         const data = {
           email: emailControl.value,

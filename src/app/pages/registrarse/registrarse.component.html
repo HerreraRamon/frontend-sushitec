@@ -1,38 +1,45 @@
 <app-nav></app-nav>
 <div class="container mt-5 mb-5">
-  <form #RegisterForm="ngForm" (submit)="register()" class="mx-auto">
+  <form [formGroup]="RegisterForm" (submit)="register()" class="mx-auto">
     <div>
-      <label for="email">Email:</label>
+      <label for="email">Correo Electrónico:</label>
       <input
         type="email"
         id="email"
-        name="email"
+        formControlName="email"
         placeholder="email"
-        [(ngModel)]="email"
         class="form-control"
       />
+      <ng-container *ngIf="RegisterForm?.get('email')?.invalid && (RegisterForm?.get('email')?.dirty || RegisterForm?.get('email')?.touched)">
+        <div class="alert alert-danger" *ngIf="RegisterForm.get('email')?.errors?.['required']">El correo electrónico es requerido.</div>
+        <div class="alert alert-danger" *ngIf="RegisterForm?.get('email')?.errors?.['email']">El correo electrónico no es válido.</div>
+      </ng-container>
     </div>
     <div>
       <label for="username">Usuario:</label>
       <input
         type="text"
         id="username"
-        name="username"
+        formControlName="username"
         placeholder="username"
-        [(ngModel)]="username"
         class="form-control"
       />
+      <ng-container *ngIf="RegisterForm?.get('username')?.invalid && (RegisterForm?.get('username')?.dirty || RegisterForm?.get('username')?.touched)">
+        <div class="alert alert-danger" *ngIf="RegisterForm.get('username')?.errors?.['required']">El usuario es requerido.</div>
+      </ng-container>
     </div>
     <div>
       <label for="password">Contraseña:</label>
       <input
         type="password"
         id="password"
-        name="password"
+        formControlName="password"
         placeholder="password"
-        [(ngModel)]="password"
         class="form-control"
       />
+      <ng-container *ngIf="RegisterForm?.get('password')?.invalid && (RegisterForm?.get('password')?.dirty || RegisterForm?.get('password')?.touched)">
+        <div class="alert alert-danger" *ngIf="RegisterForm.get('password')?.errors?.['required']">La contraseña es requerida.</div>
+      </ng-container>
     </div>
     <button type="submit" class="btn btn-primary mt-3">Enviar</button>
   </form>
