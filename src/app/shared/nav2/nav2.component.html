@@ -1,16 +1,31 @@
-<nav class="navbar">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Ejemplo Menú</a>
-      <button class="navbar-toggler" id="navbar-toggler">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-    <div class="navbar-collapse" id="navbar-collapse">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Sushi Tec</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
-        <li><a href="#">Inicio</a></li>
-          <li ><a routerLink="/login">Cerrar Sesión</a></li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/login"
+            >Cerrar Sesión</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/menu">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/clientes">Clientes</a>
+        </li>
       </ul>
     </div>
-  </nav>
+  </div>
+</nav>
