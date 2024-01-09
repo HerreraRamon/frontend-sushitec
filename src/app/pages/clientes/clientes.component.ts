@@ -4,11 +4,12 @@ import { ApiProvider } from '../../providers/api.prov'
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2'
 import { ClienteModalComponent } from '../cliente-modal/cliente-modal.component';
+import { Nav2Component } from '../../shared/nav2/nav2.component';
 
 @Component({
   selector: 'app-clientes',
   standalone: true,
-  imports: [NavComponent],
+  imports: [Nav2Component],
   templateUrl: './clientes.component.html',
   styleUrl: './clientes.component.css'
 })

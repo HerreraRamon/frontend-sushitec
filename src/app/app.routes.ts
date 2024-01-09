@@ -8,7 +8,7 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 
 export const routes: Routes = [
-    {path:"",component:DashboardComponent},
+    {path:"",component:LoginComponent},
     {path:"login",component:LoginComponent},
     {path:"registrarse",component:RegistrarseComponent},
     {path:"dashboard", component:DashboardComponent},
