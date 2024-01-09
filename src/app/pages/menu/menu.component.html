@@ -1,11 +1,8 @@
 <app-nav2></app-nav2>
-
-<div>
-  <button (click)="newMenuModal()" class="bg-green-500">Nuevo Menu</button>
-</div>
-<br />
-
 <div class="container my-3">
+  <div class="d-flex justify-content-start">
+    <button (click)="newMenuModal()" class="btn btn-success mb-3">Nuevo Menu</button>
+  </div>
     <div class="row">
       @for (menu of menus; track menu._id) {
         <div class="col-md-3 mb-4">
